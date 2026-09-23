@@ -37,6 +37,7 @@ test("Product sorting", async({page})=>
      await sorting.sorting_Verification();
      console.log("feature branch");
      console.log("day2 commits");
+     console.log("Main branch developer update");
      
 
 
