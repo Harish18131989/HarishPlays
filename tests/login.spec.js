@@ -35,6 +35,7 @@ test("Product sorting", async({page})=>
      await loginPage.login('standard_user', 'secret_sauce');
      await sorting.productclick();
      await sorting.sorting_Verification();
+     console.log("feature branch")
      
 
 
