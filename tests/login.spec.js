@@ -3,7 +3,12 @@ import { expect } from '@playwright/test';
 import { DashboardPage } from '../pages/DashboardPage.js';
 import { ProductsPage } from '../pages/ProductsPage.js';
 import { Sortingproductpage } from '../pages/Sortingproductpage.js';
+import { readExcel } from '../utility/excelutility.js';
 
+const loginData = readExcel(
+    './testdata/loginData.xlsx',
+    'Login'
+);
 test('Login and navigate to Products', async ({ page,loginfix  }) => {
 
     // const loginPage = new LoginPage(page);
@@ -12,7 +17,10 @@ test('Login and navigate to Products', async ({ page,loginfix  }) => {
 
     await loginfix.goto('/');
 
-    await loginfix.login('standard_user', 'secret_sauce');
+    await loginfix.login(
+    loginData[0].username,
+    loginData[0].password
+);
     
     const isProductsPage = await productsPage.verifyProductsPage();
 
